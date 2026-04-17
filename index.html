@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Download App</title>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f5f6fa;
+}
+
+/* HEADER */
+.header {
+    text-align: center;
+    padding: 20px;
+    font-weight: 600;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+}
+
+/* CONTAINER */
+.container {
+    padding: 15px;
+}
+
+/* CARD */
+.card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 15px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+    text-align: center;
+}
+
+/* LOGO */
+.logo {
+    width: 90px;
+    height: 90px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    animation: float 2s ease-in-out infinite;
+}
+
+/* FLOAT ANIMATION */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0px); }
+}
+
+/* TITLE */
+.app-name {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.tagline {
+    font-size: 13px;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* DOWNLOAD BUTTON */
+.download-btn {
+    margin-top: 20px;
+    background: #28a745;
+    color: #fff;
+    border: none;
+    padding: 14px;
+    width: 100%;
+    border-radius: 12px;
+    font-size: 14px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+/* LOADING BAR */
+.download-btn.loading {
+    pointer-events: none;
+    background: #1e7e34;
+}
+
+.download-btn.loading::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0%;
+    background: rgba(255,255,255,0.3);
+    animation: loading 2s linear forwards;
+}
+
+@keyframes loading {
+    0% { width: 0%; }
+    100% { width: 100%; }
+}
+
+/* ABOUT */
+.about {
+    text-align: left;
+    font-size: 13px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.title {
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-align: left;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    Download Our App
+</div>
+
+<div class="container">
+
+    <!-- APP INFO -->
+    <div class="card">
+        <img src="logo.png" class="logo">
+        <div class="app-name">KaritOne</div>
+        <div class="tagline">Fast • Easy • Reliable</div>
+
+        <button class="download-btn" id="downloadBtn" onclick="downloadApp()">
+            <i class="fas fa-download"></i> Download APK
+        </button>
+    </div>
+
+    <!-- ABOUT US -->
+    <div class="card">
+        <div class="title">About Us</div>
+        <div class="about">
+            KaritOne is a modern platform designed to make your daily services faster, easier, and more convenient. 
+            We connect users with reliable solutions through a simple and user-friendly mobile experience.
+            <br><br>
+            Our mission is to bring efficiency and innovation into one powerful app — helping you save time and effort.
+        </div>
+    </div>
+
+</div>
+
+<script>
+function downloadApp() {
+    let btn = document.getElementById("downloadBtn");
+
+    btn.classList.add("loading");
+    btn.innerHTML = "Downloading...";
+
+    setTimeout(() => {
+        // Replace with your real APK link
+        window.location.href = "your-app.apk";
+
+        btn.classList.remove("loading");
+        btn.innerHTML = '<i class="fas fa-check"></i> Downloaded';
+    }, 2000);
+}
+</script>
+
+</body>
+</html>
